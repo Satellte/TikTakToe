@@ -1,0 +1,19 @@
+.gradle
+.idea
+gradle
+Topics
+*.gradle
+*.yaml
+gradlew*
+
+Fight
+First move
+The user is the gamemaster
+Welcome to the battlefield
+What's up on the field
+*.yaml
+
+
+build
+out
+test
