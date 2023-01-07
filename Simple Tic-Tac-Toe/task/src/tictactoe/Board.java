@@ -10,10 +10,18 @@ public class Board {
     private static Boolean draw = false;
     private static char turn = 'X';
 
+    /**
+     * this method make starting position on game field
+     * @param startInput
+     */
     public static void setGame(String startInput) {
         input = startInput.toCharArray();
         getBoard();
     }
+
+    /**
+     * this method show current game field
+     */
     public static void getBoard(){
         System.out.println("---------");
         System.out.println("| " + input[0] + " " + input[1] + " " + input[2] + " |");
@@ -22,6 +30,14 @@ public class Board {
         System.out.println("---------");
     }
 
+    /**
+     * This method take 2 integer variable. These variables are coordinates for next move.
+     * Method checks the input variables to make sure they match the condition.
+     * When exceptions occur, the method catch them and displays correct messages.
+     * If all coordinates is correct, method call another method for check
+     * @param turn the variable shows whose turn make a move
+     * @throws InputMismatchException
+     */
     public static void nextMove(char turn) throws InputMismatchException {
         Scanner scanner = new Scanner(System.in);
         int nextMoveA = 0;
@@ -73,6 +89,11 @@ public class Board {
         checkGame();
     }
 
+    /**
+     * This method checks the current state of the game.
+     * If there is a winner or a draw, method will show message and the game will stop.
+     * If there is no winner yet and there are free moves, the game continues.
+     */
     public static void checkGame(){
         int x = 0;
         int o = 0;
@@ -97,6 +118,11 @@ public class Board {
             oWin();
         }
         }
+
+    /**
+     * This method checks the win conditions for X
+     * If the conditions are not met, then the turn change to O
+     */
     public static void xWin(){
         for (int i = 1; i < 8; i = i + 3) {
             if (input[i] == 'X'){
@@ -132,6 +158,10 @@ public class Board {
         }
     }
 
+    /**
+     * This method checks the win conditions for O
+     * If the conditions are not met, then the turn change to X
+     */
     public static void oWin(){
         for (int i = 1; i < 8; i = i + 3) {
             if (input[i] == 'O'){
